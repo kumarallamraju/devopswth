@@ -3,11 +3,11 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "webAppName": {
-            "defaultValue": "<prefix>devops-dev",
+            "defaultValue": "ka-devops-dev",
             "type": "String"
         },
         "hostingPlanName": {
-            "defaultValue": "<prefix>devops-asp",
+            "defaultValue": "ka-devops-asp",
             "type": "String"
         },
         "appInsightsLocation": {
@@ -15,7 +15,7 @@
             "type": "String"
         },
         "appInsightsName": {
-            "defaultValue": "<prefix>devops-ai",
+            "defaultValue": "ka-devops-ai",
             "type": "String"
         },        
         "sku": {
@@ -23,15 +23,15 @@
             "type": "String"
         },
         "registryName": {
-            "defaultValue": "<prefix>devopsreg",
+            "defaultValue": "ka-devopsreg",
             "type": "String"
         },
         "imageName": {
-            "defaultValue": "<prefix>devopsimage",
+            "defaultValue": "ka-devopsimage",
             "type":"String"
         },
         "registryLocation": {
-            "defaultValue": "South Central US",
+            "defaultValue": "West US2",
             "type": "String"
         },
         "registrySku": {
