@@ -3,7 +3,7 @@ name: .NET
 on:
   push:
     paths:
-       - '/Application/**'
+       - '/Application/*'
     branches: [ main ]
   #pull_request:
     #branches: [ main ]
