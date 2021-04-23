@@ -7,7 +7,7 @@ env:
  registryName: ka123devopsreg
  repositoryName: wth/dotnetcoreapp
  dockerFolderPath: Application/src/RazorPagesTestSample/
- tag: ${github.run_number}
+ tag: github.run_number
  
   
   
@@ -55,8 +55,8 @@ jobs:
       #run: docker login $registry -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.GITHUBTOKEN }}
 
     - name: Docker build
-      run: docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath
+      run: docker build -t $registryName/$repositoryName:${{github.run_number}} --build-arg build_version=${{github.run_number}}   $dockerFolderPath
 
     - name: Docker Push
-      run: docker push $registryName/$repositoryName:$tag
+      run: docker push $registryName/$repositoryName:${{github.run_number}}  
       
