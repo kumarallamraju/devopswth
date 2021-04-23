@@ -1,5 +1,16 @@
 name: .NET
 
+env:
+ ACR_USERNAME: ka123devopsreg
+ ACR_PASSWORD: BDGBwl8tw0dV56oNK28/7hIu3k13nvpl
+ ACR_LOGIN_SERVER: ka123devopsreg.azurecr.io
+ registryName: ka123devopsreg
+ repositoryName: wth/dotnetcoreapp
+ dockerFolderPath: Application/aspnet-core-dotnet-core
+ tag: github.run_number
+ 
+  
+  
 on:
   push:
     paths:
@@ -9,7 +20,7 @@ on:
     #branches: [ main ]
 
 jobs:
-  build:
+  build_and_test:
 
     runs-on: ubuntu-latest
 
@@ -25,4 +36,28 @@ jobs:
       run: dotnet build --configuration Release --no-restore Application/src/RazorPagesTestSample/*.csproj
     - name: Test
       run: dotnet test --no-build --verbosity normal  Application/tests/*
+      
+### The following code builds the docker image and pushes it to ACR #####
+  docker_build_and_push:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    needs: build_and_test
+    steps:     
+    - uses: actions/checkout@v2
+    - name: Docker login
+      uses: Azure/docker-login@v1     
+      with:
+        #ACR name
+        username: $ACR_USERNAME
+        #ACR password
+        password: $ACR_PASSWORD
+        #ACR URL
+        login-server: $ACR_LOGIN_SERVER
+      #run: docker login $registry -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.GITHUBTOKEN }}
+
+    - name: Docker build
+      run: docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath
+
+    - name: Docker Push
+      run: docker push $registryName/$repositoryName:$tag
       
