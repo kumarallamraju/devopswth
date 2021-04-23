@@ -3,3 +3,4 @@ Sample app from: https://github.com/dotnet/AspNetCore.Docs/tree/master/aspnetcor
 test1
 test2
 test3
+test4
