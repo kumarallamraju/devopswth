@@ -1,5 +1,11 @@
-on: [push]
 name: Deploy Azure ARM Template
+
+on: 
+  push:
+     paths:
+        - '/ARM-Templates/*'
+     branches: [main]
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
