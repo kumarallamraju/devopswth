@@ -6,7 +6,7 @@ env:
  #ACR_LOGIN_SERVER: ka123devopsreg.azurecr.io
  registryName: ka123devopsreg
  repositoryName: wth/dotnetcoreapp
- dockerFolderPath: Application/src/RazorPagesTestSample
+ dockerFolderPath: Application/src/RazorPagesTestSample/
  tag: github.run_number
  
 on:
