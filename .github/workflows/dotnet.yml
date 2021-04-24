@@ -9,8 +9,6 @@ env:
  dockerFolderPath: Application/src/RazorPagesTestSample/
  #tag: github.run_number
  
-  
-  
 on:
   push:
     paths:
