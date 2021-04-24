@@ -53,6 +53,11 @@ jobs:
         #run: docker login ${{secrets.ACR_LOGIN_SERVER}} -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
         #run: docker login $registry -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
 
+    - name: Azure Login
+      uses: Azure/login@v1.1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Docker build
       run: docker build -t $registryName/$repositoryName:${{github.run_number}} --build-arg build_version=${{github.run_number}} $dockerFolderPath
 
