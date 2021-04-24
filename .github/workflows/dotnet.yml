@@ -52,7 +52,7 @@ jobs:
         password: ${{ secrets.ACR_PASSWORD }}
         #ACR URL
         registry: ${{ secrets.ACR_LOGIN_SERVER }}
-        #run: docker login ${{secrets.ACR_LOGIN_SERVER}} -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
+        run: docker login ${{secrets.ACR_LOGIN_SERVER}} -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
         #run: docker login $registry -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
 
     - name: Docker build
