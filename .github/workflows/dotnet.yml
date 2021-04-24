@@ -47,12 +47,12 @@ jobs:
       uses: Azure/docker-login@v1     
       with:
         #ACR name
-        username: ${{ secrets.ACR_USERNAME }}
+        username: ${{secrets.ACR_USERNAME}}
         #ACR password
-        password: ${{ secrets.ACR_PASSWORD }}
+        password: ${{secrets.ACR_PASSWORD}}
         #ACR URL
-        login-server: ${{ secrets.ACR_LOGIN_SERVER }}
-      #run: docker login $registry -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.GITHUBTOKEN }}
+        registry: ${{ secrets.ACR_LOGIN_SERVER }}
+        #run: docker login ${{secrets.ACR_LOGIN_SERVER}} -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
 
     - name: Docker build
       run: docker build -t $registryName/$repositoryName:${{github.run_number}} --build-arg build_version=${{github.run_number}} $dockerFolderPath
