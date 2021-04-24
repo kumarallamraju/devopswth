@@ -1,13 +1,13 @@
 name: .NET
 
 env:
- ACR_USERNAME: ka123devopsreg
- ACR_PASSWORD: BDGBwl8tw0dV56oNK28/7hIu3k13nvpl
- ACR_LOGIN_SERVER: ka123devopsreg.azurecr.io
+ #ACR_USERNAME: ka123devopsreg
+ #ACR_PASSWORD: BDGBwl8tw0dV56oNK28/7hIu3k13nvpl
+ #ACR_LOGIN_SERVER: ka123devopsreg.azurecr.io
  registryName: ka123devopsreg
  repositoryName: wth/dotnetcoreapp
  dockerFolderPath: Application/src/RazorPagesTestSample/
- tag: github.run_number
+ #tag: github.run_number
  
   
   
@@ -47,15 +47,15 @@ jobs:
       uses: Azure/docker-login@v1     
       with:
         #ACR name
-        username: $ACR_USERNAME
+        username: ${{ secrets.ACR_USERNAME }}
         #ACR password
-        password: $ACR_PASSWORD
+        password: ${{ secrets.ACR_PASSWORD }}
         #ACR URL
-        login-server: $ACR_LOGIN_SERVER
+        login-server: ${{ secrets.ACR_LOGIN_SERVER }}
       #run: docker login $registry -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.GITHUBTOKEN }}
 
     - name: Docker build
-      run: docker build -t $registryName/$repositoryName:${{github.run_number}} --build-arg build_version=${{github.run_number}}   $dockerFolderPath
+      run: docker build -t $registryName/$repositoryName:${{github.run_number}} --build-arg build_version=${{github.run_number}} $dockerFolderPath
 
     - name: Docker Push
       run: docker push $registryName/$repositoryName:${{github.run_number}}  
