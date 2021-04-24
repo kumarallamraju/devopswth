@@ -52,8 +52,8 @@ jobs:
         login-server: ${{ secrets.ACR_LOGIN_SERVER }}
         username: ${{ secrets.ACR_USERNAME }}
         password: ${{ secrets.ACR_PASSWORD }}
-    - run: |
-        docker build -t $registryName/$repositoryName:${{github.run_number}} --build-arg build_version=${{github.run_number}} $dockerFolderPath
+    #- run: |
+        run: docker build -t $registryName/$repositoryName:${{github.run_number}} --build-arg build_version=${{github.run_number}} $dockerFolderPath
       # docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/sampleapp:${{ github.sha }}
 
 
