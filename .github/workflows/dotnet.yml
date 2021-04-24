@@ -47,9 +47,9 @@ jobs:
       uses: Azure/docker-login@v1     
       with:
         #ACR name
-        username: ${{secrets.ACR_USERNAME}}
+        username: ${{ secrets.ACR_USERNAME }}
         #ACR password
-        password: ${{secrets.ACR_PASSWORD}}
+        password: ${{ secrets.ACR_PASSWORD }}
         #ACR URL
         registry: ${{ secrets.ACR_LOGIN_SERVER }}
         #run: docker login ${{secrets.ACR_LOGIN_SERVER}} -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
