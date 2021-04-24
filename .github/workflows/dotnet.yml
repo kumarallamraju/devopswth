@@ -47,11 +47,11 @@ jobs:
       uses: Azure/docker-login@v1     
       with:
         #ACR name
-        username: ${{ secrets.ACR_USERNAME }}
+        username: ka123devopsreg #${{ secrets.ACR_USERNAME }}
         #ACR password
-        password: ${{ secrets.ACR_PASSWORD }}
+        password: BDGBwl8tw0dV56oNK28/7hIu3k13nvpl #${{ secrets.ACR_PASSWORD }}
         #ACR URL
-        registry: ${{ secrets.ACR_LOGIN_SERVER }}
+        registry: ka123devopsreg.azurecr.io #${{ secrets.ACR_LOGIN_SERVER }}
         #run: docker login ${{secrets.ACR_LOGIN_SERVER}} -u ${{secrets.ACR_USERNAME}} -p ${{secrets.ACR_PASSWORD}}
 
     - name: Docker build
