@@ -43,14 +43,14 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
     - name: Docker login
-      uses: Azure/docker-login@v1
+      uses: azure/docker-login@v1
       with:
        #ACR name
        username: ${{ secrets.ACR_USERNAME }}
        #ACR password
        password: ${{ secrets.ACR_PASSWORD }}
        #ACR URL
-       login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+       login-server: ka123devopsreg.azurecr.io #${{ secrets.ACR_LOGIN_SERVER }}
        
     - name: Docker build
       run: docker build -t $registry/$repository:${{github.run_number}} --build-arg build_version=${{github.run_number}} $docker_path
