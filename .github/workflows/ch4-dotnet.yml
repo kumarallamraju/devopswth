@@ -43,7 +43,7 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
     - name: Docker login
-      run: docker login $registry -u ka123devopsreg -p pitxvDlI7XBs0R+aFLDDDDRiaG5sAhCL
+      run: docker login $registry -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
       #uses: azure/docker-login@v1
       #with:
        #ACR name
