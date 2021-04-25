@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "webAppName": {
-            "defaultValue": "ka123devops-prod",
+            "defaultValue": "ka123devops-dev",
             "type": "String"
         },
         "hostingPlanName": {
