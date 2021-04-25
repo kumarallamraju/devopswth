@@ -1,0 +1,35 @@
+name: .NET
+
+env:
+ #ACR_USERNAME: ka123devopsreg
+ #ACR_PASSWORD: BDGBwl8tw0dV56oNK28/7hIu3k13nvpl
+ #ACR_LOGIN_SERVER: ka123devopsreg.azurecr.io
+ registry: ka123devopsreg
+ repository: wth/dotnetcoreapp
+ docker_path: Application/src/RazorPagesTestSample/
+ tag: github.run_number
+ 
+on:
+  push:
+    paths:
+       - 'Application/*'
+    branches: [ main ]
+  #pull_request:
+    #branches: [ main ]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      #with:
+        #dotnet-version: 2.2
+    - name: Restore dependencies
+      run: dotnet restore Application/src/RazorPagesTestSample/*.csproj
+    - name: Build
+      run: dotnet build --configuration Release --no-restore Application/src/RazorPagesTestSample/*.csproj
+    - name: Test
+      run: dotnet test --no-build --verbosity normal  Application/tests/*
