@@ -31,7 +31,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal  Application/tests/*
       
    
-  #######################
+  ####################### The following is needed for Challenge#5 #############
   docker_build_and_push:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -59,3 +59,4 @@ jobs:
             body: body
           });
 
+####################### The following is needed for Challenge#6 #############
