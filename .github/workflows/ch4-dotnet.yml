@@ -4,7 +4,7 @@ env:
  #ACR_USERNAME: ka123devopsreg
  #ACR_PASSWORD: BDGBwl8tw0dV56oNK28/7hIu3k13nvpl
  #ACR_LOGIN_SERVER: ka123devopsreg.azurecr.io
- registry: ka123devopsreg
+ registry: ka123devopsreg.azurecr.io
  repository: wth/dotnetcoreapp
  docker_path: Application/src/RazorPagesTestSample/
  tag: github.run_number
@@ -43,15 +43,15 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
     - name: Docker login
-      #run: docker $registry -u ACR_USERNAME -p ACR_PASSWORD
-      uses: azure/docker-login@v1
-      with:
+      run: docker $registry -u ka123devopsreg -p pitxvDlI7XBs0R+aFLDDDDRiaG5sAhCL
+      #uses: azure/docker-login@v1
+      #with:
        #ACR name
-       username: ka123devopsreg #${{ secrets.ACR_USERNAME }}
+       #username: ka123devopsreg #${{ secrets.ACR_USERNAME }}
        #ACR password
-       password: pitxvDlI7XBs0R+aFLDDDDRiaG5sAhCL #${{ secrets.ACR_PASSWORD }}
+       #password: pitxvDlI7XBs0R+aFLDDDDRiaG5sAhCL #${{ secrets.ACR_PASSWORD }}
        #ACR URL
-       login-server: ka123devopsreg.azurecr.io #${{ secrets.ACR_LOGIN_SERVER }}
+       #login-server: ka123devopsreg.azurecr.io #${{ secrets.ACR_LOGIN_SERVER }}
        
     - name: Docker build
       run: docker build -t $registry/$repository:${{github.run_number}} --build-arg build_version=${{github.run_number}} $docker_path
