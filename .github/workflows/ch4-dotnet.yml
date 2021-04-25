@@ -42,10 +42,13 @@ jobs:
     needs: build_and_test
     steps:     
     - name: Docker login
-    #- uses: actions/checkout@v2
-    #  run: docker login $registry -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
-    uses: azure/login@v1
+    - uses: Azure/docker-login@v1
     with:
-      creds: ${{ secrets.AZURE_CREDENTIALS }}
-
+       #ACR name
+       username: ${{ secrets.ACR_USERNAME }}
+       #ACR password
+       password: ${{ secrets.ACR_PASSWORD }}
+       #ACR URL
+       login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+  
     
