@@ -41,7 +41,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build_and_test
     steps:     
-    - uses: actions/checkout@v2
     - name: Docker login
-      run: docker login $registry -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+    #- uses: actions/checkout@v2
+    #  run: docker login $registry -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+    uses: azure/login@v1
+    with:
+      creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     
