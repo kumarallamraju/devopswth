@@ -43,10 +43,11 @@ jobs:
     steps: 
     - uses: actions/checkout@v2
     - name: Docker login
+      #run: docker $registry -u ACR_USERNAME -p ACR_PASSWORD
       uses: azure/docker-login@v1
       with:
        #ACR name
-       username: ka123devopsreg.azurecr.io #${{ secrets.ACR_USERNAME }}
+       username: ka123devopsreg #${{ secrets.ACR_USERNAME }}
        #ACR password
        password: pitxvDlI7XBs0R+aFLDDDDRiaG5sAhCL #${{ secrets.ACR_PASSWORD }}
        #ACR URL
