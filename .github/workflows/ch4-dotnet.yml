@@ -46,9 +46,9 @@ jobs:
       uses: azure/docker-login@v1
       with:
        #ACR name
-       username: ${{ secrets.ACR_USERNAME }}
+       username: ka123devopsreg.azurecr.io #${{ secrets.ACR_USERNAME }}
        #ACR password
-       password: ${{ secrets.ACR_PASSWORD }}
+       password: pitxvDlI7XBs0R+aFLDDDDRiaG5sAhCL #${{ secrets.ACR_PASSWORD }}
        #ACR URL
        login-server: ka123devopsreg.azurecr.io #${{ secrets.ACR_LOGIN_SERVER }}
        
