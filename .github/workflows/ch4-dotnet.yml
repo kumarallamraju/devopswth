@@ -51,5 +51,8 @@ jobs:
        password: ${{ secrets.ACR_PASSWORD }}
        #ACR URL
        login-server: ${{ secrets.ACR_LOGIN_SERVER }}
+       
+    - name: Docker build
+      run: docker build -t $registry/$repository:${{github.run_number}} --build-arg build_version=${{github.run_number}} $docker_path
   
     
