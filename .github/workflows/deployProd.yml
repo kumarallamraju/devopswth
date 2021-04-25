@@ -2,8 +2,8 @@ name: Deploy Azure ARM Template for DEV
 
 on: 
   push:
-     #paths:
-        #- '/ARM-Templates/*'
+     paths:
+        - '.github/workflows/deployTest.yml'
      branches: [main]
 
 jobs:
