@@ -76,7 +76,7 @@ jobs:
       uses: Azure/webapps-deploy@v2
       with:
         app-name: ${{ env.webapp_name }} 
-        #slot-name: staging
+        slot-name: production
         #images: openhackggp0ljh0acr.azurecr.io/devopsoh/api-poi:${{ github.run_number }} 
         images: ${{ env.registry }}/${{ env.repository }}:${{ github.run_number }}   
  
