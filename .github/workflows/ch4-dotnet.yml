@@ -10,6 +10,7 @@ on:
   push:
     paths:
        - 'Application/*'
+       - '.github/workflows/ch4-dotnet.yml'
     branches: [ main ]
   #pull_request:
     #branches: [ main ]
