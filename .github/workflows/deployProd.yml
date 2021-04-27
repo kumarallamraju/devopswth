@@ -1,9 +1,9 @@
-name: Deploy Azure ARM Template for DEV
+name: Deploy Azure ARM Template for PROD
 
 on: 
   push:
      paths:
-        - '.github/workflows/deployTest.yml'
+        - '.github/workflows/deployProd.yml'
      branches: [main]
 
 jobs:
